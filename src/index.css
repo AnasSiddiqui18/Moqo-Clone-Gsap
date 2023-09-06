@@ -1,0 +1,40 @@
+@font-face {
+  font-family: heading;
+  src: url(../public/fonts/Heading-Now-Variable.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+.page1 {
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.page1 h1 {
+  font-family: heading;
+  color: #fff;
+  font-size: 40vw;
+  font-stretch: 260%;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-weight: 1000;
+}
+
+.page2 {
+  height: 100vh;
+  background-color: cyan;
+  border: 2px solid red;
+}
+.page3 {
+  height: 100vh;
+  background-color: pink;
+}

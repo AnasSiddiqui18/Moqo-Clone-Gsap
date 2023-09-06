@@ -13,9 +13,6 @@ const App = () => {
       scrollTrigger: {
         trigger: ".page1",
         scroller: "body",
-        markers: true,
-        start: "top 0",
-        end: "top -200%",
         scrub: 1,
         pin: true,
       },

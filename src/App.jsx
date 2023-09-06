@@ -13,7 +13,7 @@ const App = () => {
       scrollTrigger: {
         trigger: ".page1",
         scroller: "body",
-        scrub: 1,
+        scrub: 3,
         pin: true,
       },
     });

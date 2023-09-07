@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,7 +13,7 @@ const App = () => {
         scrollTrigger: {
           pin: true,
           trigger: ".page1",
-          scrub: 1,
+          scrub: 3,
           end: "+=4000px",
         },
       });
@@ -24,7 +24,7 @@ const App = () => {
         ease: "none",
         fontWeight: 100,
       })
-        .to(".box", { translateY: 0, ease: "none" }, 1)
+        .to(".box", { translateY: 0, ease: "none" }, 1) //? this parameter means that this animation will starts 1 seconds after the previous animation. means when the previous animation ends so after 1 seconds of its ending this animation will runs
         .to(".nested-box", { clipPath: `inset(0%)`, ease: "none" });
     }, compRef);
 

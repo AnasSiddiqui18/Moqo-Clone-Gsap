@@ -24,11 +24,11 @@ const App = () => {
       {
         opacity: 0,
         y: "0",
-        // rotate: "0",
+        rotate: "0",
       },
       {
         y: "-800",
-        // rotate: "-360deg",
+        rotate: "-360deg",
         opacity: 1,
         duration: 1,
         scrollTrigger: {

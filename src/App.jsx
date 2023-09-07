@@ -36,7 +36,7 @@ const App = () => {
           scroller: "body",
           scrub: 3,
           markers: true,
-          start: "top 30%", // Adjust this value to control when the box appears
+          start: "top 20%", // Adjust this value to control when the box appears
           end: "top 50%", // Adjust this value to control when the box stops appearing
         },
       }

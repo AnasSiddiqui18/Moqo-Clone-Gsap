@@ -65,7 +65,7 @@ const App = () => {
       <div className="page1">
         <h1>We build brands</h1>
         <div className="box">
-          <img src="./public/img/kela.png" alt="" />
+          <img src="./public/img/banana.png" alt="" />
         </div>
       </div>
       <div className="page2"></div>

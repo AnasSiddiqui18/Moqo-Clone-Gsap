@@ -1,6 +1,6 @@
 @font-face {
   font-family: heading;
-  src: url(../public/fonts/Heading-Now-Variable.ttf);
+  src: url(/fonts/Heading-Now-Variable.ttf);
 }
 
 * {
@@ -13,6 +13,7 @@ body {
   line-height: 1.4;
   font-family: heading;
   background-color: #000;
+  overflow-x: hidden;
 }
 
 .max-container {
@@ -31,13 +32,17 @@ nav {
   position: fixed;
   width: 100%;
   padding: 0 40px;
-  z-index: 100;
-  background-color: #000;
+  z-index: 11;
+}
+
+.logo h1 {
+  font-stretch: 750%;
+  font-weight: 400;
 }
 
 ul {
   display: flex;
-  background-color: #000;
+
   list-style: none;
   text-transform: uppercase;
   font-weight: 200;
@@ -65,23 +70,37 @@ ul li:nth-child(3) {
 .page1 {
   height: 100vh;
   overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
-.box {
+.page1 .box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* height: 56.25vw; */
+  background-color: transparent;
+  z-index: 10;
+  transform: translateY(100%);
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.box img {
-  height: 500px;
-  width: 600px;
-  margin: auto;
-  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 1)); /* Black drop shadow */
+.nested-box {
+  width: 100%;
+  height: 100%;
+  height: 56.25vw;
+  clip-path: inset(20%);
 }
 
 .page1 h1 {
   color: #fff;
-  font-size: 50vw;
+  font-size: 49vw;
   font-stretch: 260%;
+  /* letter-spacing: 2rem; */
   text-transform: uppercase;
   white-space: nowrap;
   font-weight: 1000;

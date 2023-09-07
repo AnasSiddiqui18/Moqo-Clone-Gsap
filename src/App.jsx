@@ -1,54 +1,40 @@
 import { gsap } from "gsap";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
-  useEffect(() => {
-    const textAnimation = gsap.to(".page1 h1", {
-      transform: "translateX(-100%)",
-      fontWeight: 100,
-      scrollTrigger: {
-        trigger: ".page1",
-        scroller: "body",
-        scrub: 3,
-        top: "top 0",
-        end: "top -200%",
-        pin: true,
-      },
-    });
+  const compRef = useRef();
 
-    const boxAnimation = gsap.fromTo(
-      ".box img",
-      {
-        opacity: 0,
-        y: "0",
-        rotate: "0",
-      },
-      {
-        y: "-800",
-        rotate: "-360deg",
-        opacity: 1,
-        duration: 1,
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".box", // Add a box-trigger element
-          scroller: "body",
-          scrub: 3,
-          start: "top 20%", // Adjust this value to control when the box appears
-          end: "top 50%", // Adjust this value to control when the box stops appearing
+          pin: true,
+          trigger: ".page1",
+          scrub: 1,
+          end: "+=4000px",
         },
-      }
-    );
+      });
+
+      tl.to(".main-title", {
+        translateX: "-140%",
+        duration: 1.5,
+        ease: "none",
+        fontWeight: 100,
+      })
+        .to(".box", { translateY: 0, ease: "none" }, 1)
+        .to(".nested-box", { clipPath: `inset(0%)`, ease: "none" });
+    }, compRef);
 
     return () => {
-      textAnimation.kill();
-      boxAnimation.kill();
+      ctx.revert();
     };
   }, []);
 
   return (
-    <>
+    <div ref={compRef}>
       <header>
         <nav>
           <div className="logo">
@@ -61,15 +47,21 @@ const App = () => {
           </ul>
         </nav>
       </header>
+
       <div className="page1">
-        <h1>We build brands</h1>
+        <h1 className="main-title">We build brands</h1>
         <div className="box">
-          <img src="/img/banana.png" alt="" />
+          <video
+            muted
+            autoPlay
+            className="nested-box"
+            src="/video/show_case.mp4"
+          ></video>
         </div>
       </div>
-      <div className="page2"></div>
-      <div className="page3"></div>
-    </>
+      <div className="page2">{/* Content for page 2 */}</div>
+      <div className="page3">{/* Content for page 3 */}</div>
+    </div>
   );
 };
 

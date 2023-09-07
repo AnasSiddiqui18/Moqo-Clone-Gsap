@@ -35,7 +35,7 @@ const App = () => {
           trigger: ".box", // Add a box-trigger element
           scroller: "body",
           scrub: 3,
-          markers: true,
+          // markers: true,
           start: "top 20%", // Adjust this value to control when the box appears
           end: "top 50%", // Adjust this value to control when the box stops appearing
         },
